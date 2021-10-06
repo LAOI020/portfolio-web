@@ -1,0 +1,59 @@
+
+.example-container {
+    display: none;
+    height: var(--example-container-height);
+    width: 80%;
+    padding: 10px;
+    background-color: black;
+    border: 4px solid green;
+    border-radius: 6px;
+    white-space: pre-line;
+    overflow-y: auto;
+}
+
+.videoExample {
+    cursor: pointer;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 170px;
+    width: unquote("min(350px, 50%)");
+    margin: 0 20px 5px 0;
+    border: 2px solid green;
+    border-radius: 6px;
+    background-color: black;
+    transition: .6s ease;
+
+    svg {
+        height: 30%;
+        width: 30%;
+        color: green;
+    }
+
+    &:hover {
+        background-color: green;
+
+        svg {
+            color: black;
+        }
+    }
+}
+
+.fullScreenVideo-container {
+    position: absolute;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+    background-color: transparent;
+
+    div {
+        height: 100%;
+        width: 100%;
+        background-color: white;
+    }
+}

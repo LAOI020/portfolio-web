@@ -1,0 +1,49 @@
+
+:root {
+    --fontSize: 16px;
+    --scrollBar-width: 18px;
+
+    --myInfoContainer-alignSelf: start;
+    --myInfoContainer-padding: 15px 50px 15px 50px;
+    --myInfoContainer-text-width: 29ch;
+    --myInfoContainer-text2-width: 34ch;
+
+    --tagCloud-alignSelf: end;
+    --tagCloud-margin: 0 150px 15px 0;
+
+    --skill-container-size: 90px;
+
+    --example-container-height: auto;
+
+    --contactMe-container-width: 25%;
+    --contactMe-container-padding: 30px;
+
+    @media screen and (max-width: 1024px){
+        --fontSize: 12px;
+        --scrollBar-width: 0;
+
+        --myInfoContainer-alignSelf: center;
+        --myInfoContainer-padding: 15px 0 15px 0;
+        --myInfoContainer-text-width: 17ch;
+        --myInfoContainer-text2-width: 25ch;
+
+        --tagCloud-alignSelf: center;
+        --tagCloud-margin: 0 0 0 0;
+
+        --skill-container-size: 40px;
+
+        --example-container-height: 450px;
+
+        --contactMe-container-width: 80%;
+        --contactMe-container-padding: 15px;
+    }
+}
+
+
+@import './base';
+@import './Animations';
+@import './App';
+@import './MyInfo';
+@import './MySkills';
+@import './Examples';
+@import './ContactMe';

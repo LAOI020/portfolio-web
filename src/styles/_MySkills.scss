@@ -1,0 +1,124 @@
+
+.mySkills-container {
+    display: none; //REMOVE WITH JAVASCRIPT
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding: 5px 5px 35px 5px;
+    background-color: rgba($color: black, $alpha: .5);
+    border: 4px solid green;
+    border-radius: 6px;
+}
+
+.skillsTitle-animation {
+    margin: 0;
+    margin-bottom: 1rem;
+    color: green;
+    font-size: 2.5rem;
+}
+  
+.skillsTitle-animation:before,
+.skillsTitle-animation:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+}
+  
+.skillsTitle-animation:before{
+    animation: glitchTop 1s linear infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+  
+.skillsTitle-animation:after{
+    animation: glitchBotom 1.5s linear infinite;
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+.skills-container-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(unquote("min(100%, var(--skill-container-size))"), 1fr));
+    width: 100%;
+}
+
+.skill-container {
+    position: relative;
+    align-self: center;
+    justify-self: center;
+    height: var(--skill-container-size);
+    width: var(--skill-container-size);
+    border-radius: 6px;
+    opacity: 1;
+    transition: 1s ease;
+    transform: scale(0);
+    
+    &:hover {
+        opacity: 1;
+        background-color: green;
+        transform: scale(1.2);
+    }
+
+    &::before {
+        content: attr(name);
+        font-weight: 700;
+        position: absolute;
+        top: 0px;
+        display: block;
+        opacity: 0;
+        transition: .9s ease;
+    }
+
+    &:hover::before {
+        opacity: 1;
+        top: 80%;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        display: block;
+        height: 10px;
+        width: 100%;
+        background-color: darken($color: green, $amount: 3);
+        box-shadow: 0px 0px 15px 10px green;
+        opacity: 0;
+        transition: .6s ease;
+    }
+
+    &:hover::after {
+        top: 100%;
+        height: 0px;
+        opacity: 1;
+        box-shadow: 0px 0px 9px 5px transparent;
+    }
+}
+
+@keyframes glitchTop{
+    2%,64%{
+        transform: translate(2px,-2px);
+    }
+    4%,60%{
+        transform: translate(-2px,2px);
+    }
+    62%{
+        transform: translate(13px,-1px) skew(-13deg); 
+    }
+}
+
+@keyframes glitchBotom{
+    2%,64%{
+        transform: translate(-2px,0);
+    }
+    4%,60%{
+        transform: translate(-2px,0);
+    }
+    62%{
+        transform: translate(-22px,5px) skew(21deg); 
+    }
+}
+
+

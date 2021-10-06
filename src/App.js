@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React, { useEffect } from 'react';
+import { ContactMe } from './components/ContactMe';
+import { MyInfo } from './components/MyInfo';
+import { MySkills } from './components/MySkills';
+import { SectionExamples } from './components/SectionExamples';
+import { showAnimations } from './helpers/showAnimations';
 
-export default App;
+
+export const App = () => {
+
+    useEffect(() => {
+        document.querySelector('.mainContainer-app').scrollTop = 0;
+        showAnimations();        
+    }, []);
+
+    return (
+        <div className="mainContainer-app">
+            <div 
+                id="section-myInfo"
+                className="sectionVertical"
+            >
+                <MyInfo/>
+            </div>
+            
+            <div className="sectionVertical">
+                <MySkills/>
+            </div>
+
+            <SectionExamples/>
+
+            <div 
+            id="section-contactMe"
+            className="sectionVertical">
+                <ContactMe/>
+            </div>
+        </div>
+    )
+};
+

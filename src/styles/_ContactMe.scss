@@ -1,0 +1,84 @@
+
+.contactMe-container {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: var(--contactMe-container-width);
+    padding: var(--contactMe-container-padding);
+    color: green;
+    background-color: rgba($color: black, $alpha: .5);
+    border-radius: 6px;
+
+    h1 {
+        margin: 0;
+    }
+
+    h3 {
+        margin: 25px 0 8px 0;
+        align-self: start;
+    }
+
+    input, textarea {
+        align-self: start;
+        width: 95%;
+        padding: 3px;
+        color: green;
+        background-color: rgba($color: black, $alpha: .9);
+        border: 3px solid green;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: 500;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    textarea {
+        resize: none;
+        height: 150px;
+    }
+}
+
+.btnSend {
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    margin-top: 25px;
+    padding: 5px;
+    color: green;
+    background: none;
+    border: 3px solid green;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: color 0.4s linear;
+    z-index: 1;
+    
+    &:hover {
+        color: black;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: green;
+        z-index: -1;
+        transition: transform 0.5s;
+        transform-origin: 0 0;
+        transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+    }
+}
+
+.scale-btn::before {
+    transform: scaleX(0);
+}
+.scale-btn:hover::before {
+    transform: scaleX(1);
+}
